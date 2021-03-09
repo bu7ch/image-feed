@@ -1,11 +1,17 @@
-import { Image, StyleSheet, View, Dimensions } from 'react-native'
+import { Image, StyleSheet, View, Dimensions, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
  import React, { Component } from 'react';
 import AuthorRow from './AuthorRow';
 
  
  class Card extends Component {
+state = {
+  loading: true,
+}
 
+handleLoad = () => {
+  this.setState({ loading: false})
+}
   // static propTypes = {
   //   fullname: PropTypes.string.isRequired,
   //   image: Image.propTypes.source.isRequired,
@@ -18,6 +24,7 @@ import AuthorRow from './AuthorRow';
   // }
    render() {
      const  { fullname, image, linkText, onPressLinkText } = this.props;
+     const  { loading } = this.state;
      return (
        <View>
          <AuthorRow 
@@ -25,7 +32,12 @@ import AuthorRow from './AuthorRow';
          linkText={linkText}
          onPressLinkText={onPressLinkText} 
          />
-         <Image style={styles.image} source={image} />
+         <View style={ styles.image}>
+          {loading && (
+            <ActivityIndicator style={StyleSheet.absoluteFill} size={'large'} />
+          )}
+         <Image style={styles.image} source={image} onLoad={this.handleLoad} />
+         </View>
        </View>
      );
    }
