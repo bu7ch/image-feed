@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import React from "react";
 export default function NavigationBar({ title, leftText, onPressLeftText}) {
   return (
     <View style={styles.container}>

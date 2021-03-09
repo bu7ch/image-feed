@@ -14,6 +14,11 @@ class Feed extends Component {
   // static propTypes = {
   //   style: ViewPropTypes.style,
   // };
+  
+  // static propTypes = {
+  //   commentsForItem : PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+  //   onPressComments: PropTypes.func.isRequired,
+  // }
   // static defaultProps = {
   //   style: null,
   // };
@@ -27,26 +32,38 @@ class Feed extends Component {
   async componentDidMount() {
     try {
       const items = await fetchImages();
+
       this.setState({
         loading: false,
         items,
       });
     } catch (e) {
-      this.setState({ loading: false, error: true });
+      this.setState({
+        loading: false,
+        error: true,
+      });
     }
   }
+
   render() {
-    const { style } = this.props;
+    const { commentsForItem, onPressComments, style } = this.props;
     const { loading, error, items } = this.state;
+
     if (loading) {
-      return <ActivityIndicator size={"large"} />;
+      return <ActivityIndicator size="large" />;
     }
+
     if (error) {
       return <Text>Error...</Text>;
     }
+
     return (
       <SafeAreaView style={style}>
-        <CardList items={items} />
+        <CardList
+          items={items}
+          commentsForItem={commentsForItem}
+          onPressComments={onPressComments}
+        />
       </SafeAreaView>
     );
   }

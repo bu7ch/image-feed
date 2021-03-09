@@ -1,18 +1,19 @@
-import { ScrollView, StyleSheet, Text , View } from 'react-native';
-import React, { Component } from 'react';
+import { ScrollView, StyleSheet, Text, View  } from "react-native";
+import React, { Component } from "react";
 
 class CommentList extends Component {
-renderItem = (item, index) => {
-<View key={index} style={styles.comment}>
-  <Text>{item}</Text>
-</View>
-}
+
+  
+  renderItem = (item, index) => {
+    <View key={index} style={styles.comment}>
+      <Text>{item}</Text>
+    </View>;
+  };
 
   render() {
     const { items } = this.props;
 
-    return <ScrollView> {items.map(this.renderItem)}</ScrollView>
-    
+    return <ScrollView> {items.map(this.renderItem)}</ScrollView>;
   }
 }
 const styles = StyleSheet.create({
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingRight: 20,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'rgba(0,0,0,0.05)'
-  }
-})
+    borderBottomColor: "rgba(0,0,0,0.05)",
+  },
+});
 
 export default CommentList;
