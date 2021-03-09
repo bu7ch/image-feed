@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     color:'white'
   }
 })
-Avatar.PropTypes = {
-  initials: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
-};
+// Avatar.PropTypes = {
+//   initials: PropTypes.string.isRequired,
+//   size: PropTypes.number.isRequired,
+// };

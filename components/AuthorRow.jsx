@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   }
 })
 
-AuthorRow.PropTypes = {
-  fulname : PropTypes.string.isRequired,
-  linkText : PropTypes.string.isRequired,
-  onPressLinkText : PropTypes.func.isRequired,
-}
+// AuthorRow.propTypes = {
+//   fullname : PropTypes.string.isRequired,
+//   linkText : PropTypes.string.isRequired,
+//   onPressLinkText : PropTypes.func.isRequired,
+// }
